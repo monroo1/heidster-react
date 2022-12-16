@@ -25,7 +25,7 @@ const Admin = () => {
     const formData = new FormData();
     formData.append("file", event.target.elements[0].files[0]);
     const res = await downloadFile(formData);
-    event.target.firstChild.value = "";
+    event.target.elements[0].value = "";
     return res;
   };
 
@@ -89,10 +89,16 @@ const Admin = () => {
               element={<HeaderAdmin downloadImage={OnSumbitFile} />}
             />
             <Route path="footer" element={<FooterAdmin />} />
-            <Route path="main" element={<MainAdmin />} />
+            <Route
+              path="main"
+              element={<MainAdmin downloadImage={OnSumbitFile} />}
+            />
             <Route path="services" element={<ServicesAdmin />} />
             <Route path="projects" element={<ProjectsAdmin />} />
-            <Route path="feedback" element={<FeedbackAdmin />} />
+            <Route
+              path="feedback"
+              element={<FeedbackAdmin downloadImage={OnSumbitFile} />}
+            />
             <Route path="contacts" element={<ContactsAdmin />} />
           </Routes>
         </div>

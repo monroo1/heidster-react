@@ -38,7 +38,7 @@ const HeaderAdmin = ({ downloadImage }) => {
     console.log(res);
   };
 
-  const handleChageButton = async (event) => {
+  const handleChangeButton = async (event) => {
     event.preventDefault();
     const res = await patchData({
       id: element.id,
@@ -134,7 +134,7 @@ const HeaderAdmin = ({ downloadImage }) => {
           </div>
           <button
             className="bg-sky-400 no-underline py-3 px-5 text-slate-100 rounded-lg pointer-events-auto hover:bg-sky-600"
-            onClick={handleChageButton}
+            onClick={handleChangeButton}
           >
             Сохранить
           </button>

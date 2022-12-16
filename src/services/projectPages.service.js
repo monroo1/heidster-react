@@ -14,8 +14,18 @@ export const projectPageService = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
+    createFeddback: builder.mutation({
+      query: (body) => ({
+        url: "/review",
+        method: "POST",
+        body: body,
+      }),
+    }),
   }),
 });
 
-export const { useFetchProjectPageQuery, useFetchFeedbackPageQuery } =
-  projectPageService;
+export const {
+  useFetchProjectPageQuery,
+  useFetchFeedbackPageQuery,
+  useCreateFeddbackMutation,
+} = projectPageService;

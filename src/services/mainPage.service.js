@@ -8,7 +8,15 @@ export const mainPageService = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
+    patchMainPageElement: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/mainPageElement/${id}`,
+        method: "PATCH",
+        body: body,
+      }),
+    }),
   }),
 });
 
-export const { useFetchMainPageQuery } = mainPageService;
+export const { useFetchMainPageQuery, usePatchMainPageElementMutation } =
+  mainPageService;
