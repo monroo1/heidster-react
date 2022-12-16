@@ -19,7 +19,16 @@ export const authService = apiSlice.injectEndpoints({
         body: { ...content },
       }),
     }),
+    checkAuth: builder.mutation({
+      query: () => ({
+        url: "/user",
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useRegistrationMutation } = authService;
+export const {
+  useLoginMutation,
+  useRegistrationMutation,
+  useCheckAuthMutation,
+} = authService;

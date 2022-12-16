@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   useRegistrationMutation,
   useLoginMutation,
@@ -93,6 +93,10 @@ const Registration = () => {
               value={secretKey}
               onChange={(e) => setSecretKey(e.target.value)}
             />
+            <div className="form-sign">
+              <p>Войти: </p>
+              <Link to="/login">Sing In</Link>
+            </div>
           </div>
           <Button
             variant="contained"

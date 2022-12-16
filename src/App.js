@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   MainPage,
@@ -6,9 +7,22 @@ import {
   ContactsPage,
   AdminPage,
 } from "./pages";
-import { Login, Registration } from "./components/admin";
+import {
+  Login,
+  Registration,
+  HeaderAdmin,
+  FooterAdmin,
+  MainAdmin,
+  ServicesAdmin,
+  ProjectsAdmin,
+  FeedbackAdmin,
+  ContactsAdmin,
+} from "./components/admin";
 
 import "./App.css";
+import { useCheckAuthMutation } from "./services/auth.service";
+import { useDispatch } from "react-redux";
+import { setLogout, setUser } from "./store/reducers/auth.slice";
 
 const router = createBrowserRouter([
   {
@@ -29,10 +43,61 @@ const router = createBrowserRouter([
   },
   { path: "/login", element: <Login /> },
   { path: "/reg", element: <Registration /> },
-  { path: "/admin", element: <AdminPage /> },
+  {
+    path: "/admin/*",
+    element: <AdminPage />,
+    children: [
+      {
+        path: "header",
+        element: <HeaderAdmin />,
+      },
+      {
+        path: "footer",
+        element: <FooterAdmin />,
+      },
+      {
+        path: "main",
+        element: <MainAdmin />,
+      },
+      {
+        path: "services",
+        element: <ServicesAdmin />,
+      },
+      {
+        path: "projects",
+        element: <ProjectsAdmin />,
+      },
+      {
+        path: "feedback",
+        element: <FeedbackAdmin />,
+      },
+      {
+        path: "contacts",
+        element: <ContactsAdmin />,
+      },
+    ],
+  },
 ]);
 
 function App() {
+  const dispatch = useDispatch();
+  const [auth] = useCheckAuthMutation();
+
+  const checkAuth = async () => {
+    try {
+      const res = await auth().unwrap();
+      res.length > 0
+        ? dispatch(setUser(localStorage.getItem("token")))
+        : dispatch(setLogout());
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    !!localStorage.getItem("token") && checkAuth();
+  }, []);
+
   return (
     <div className="App">
       <RouterProvider router={router}></RouterProvider>

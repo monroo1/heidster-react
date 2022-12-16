@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useLoginMutation } from "../../../services/auth.service";
 import { setLogout, setUser } from "../../../store/reducers/auth.slice";
 import { TextField, Button } from "@mui/material";
@@ -60,6 +60,10 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               error={error}
             />
+            <div className="form-sign">
+              <p>Зарегестрироваться: </p>
+              <Link to="/reg">Sing Up</Link>
+            </div>
           </div>
           <Button variant="contained" onClick={handleClickLogin}>
             Войти

@@ -1,0 +1,28 @@
+.services__item-logo {
+  width: 200px;
+  height: 250px;
+}
+
+@media screen and (max-width: 960px) {
+  .services__item {
+    flex-direction: column;
+  }
+  .services__item-logo {
+    width: 100%;
+    height: auto;
+  }
+  .services__item-container {
+    width: calc(100% - 20px);
+  }
+  .services {
+    padding-top: 0;
+  }
+  .services__title {
+    font-size: 28px;
+  }
+  .services__title-description {
+    font-size: 16px;
+    padding: 0 32px;
+    margin: 0;
+  }
+}

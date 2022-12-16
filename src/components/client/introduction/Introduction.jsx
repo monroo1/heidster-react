@@ -11,7 +11,7 @@ const Introduction = ({ props }) => {
           {props.filter((el) => el.name === "sub-title")[0].value}
         </span>
         <p className="introduction-title__description">
-          {props.filter((el) => el.name === "deiscription")[0].value}
+          {props.filter((el) => el.name === "main-description")[0].value}
         </p>
         <AppButton
           value={props.filter((el) => el.name === "button")[0].value}

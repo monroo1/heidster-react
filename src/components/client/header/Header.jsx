@@ -9,8 +9,12 @@ const Header = () => {
       <header className="header">
         <div className="header-nav">
           <Link to="/" className="header-nav__logo">
-            logo
-            {/* <img src="~/assets/img/header-logo.png" /> */}
+            <img
+              src={
+                "http://80.78.246.20/" +
+                data.filter((el) => el.name === "logo")[0].file.path
+              }
+            />
           </Link>
           <div className="header-nav__navbar">
             {data
@@ -30,7 +34,7 @@ const Header = () => {
               href="mailto:heidster.studio@gmail.com"
               className="header-nav__mail"
             >
-              {data.filter((el) => el.name === "mail")[0].value}
+              {data.filter((el) => el.name === "button")[0].value}
             </a>
           </div>
         </div>

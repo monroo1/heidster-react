@@ -24,7 +24,13 @@ const Arguments = ({ props }) => {
               </article>
             ))}
         </div>
-        <img src="~/assets/img/arguments.svg" className="arguments__img" />
+        <img
+          src={
+            "http://80.78.246.20/" +
+            props.filter((el) => el.name === "logo")[0].file.path
+          }
+          className="arguments__img"
+        />
       </div>
     </section>
   );

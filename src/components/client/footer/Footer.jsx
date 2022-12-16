@@ -20,17 +20,22 @@ const Header = () => {
           <div className="footer-social">
             <Link to="/">
               <img
-                className="footer-social__logo"
-                src="~/assets/img/footer-logo.png"
-                alt="Heidster Studio"
+                src={
+                  "http://80.78.246.20/" +
+                  data.filter((el) => el.name === "logo")[0].file.path
+                }
               />
             </Link>
             <div className="footer-social__links">
               {data
-                .filter((element) => element.name === "social")
+                .filter((element) => element.name === "social-link")
                 .map((el, index) => (
-                  <Link to="/" key={index} className="footer-social__link">
-                    <img src="getImg(link)" alt={el.value} />
+                  <Link to="/" key={index}>
+                    <img
+                      src={"http://80.78.246.20/" + el.file.path}
+                      alt={el.value}
+                      className="footer-social__link"
+                    />
                   </Link>
                 ))}
             </div>
@@ -43,7 +48,7 @@ const Header = () => {
             .filter((element) => element.type === "menu")
             .map((menu, index) => (
               <div key={index} className="footer-menu">
-                <h4 className="footer__title">{menu.menu.elements[0].name}</h4>
+                <h4 className="footer__title">{menu.menu.name}</h4>
                 <ul className="footer__ul">
                   {menu.menu.elements
                     .filter((item) => item.value !== "title")

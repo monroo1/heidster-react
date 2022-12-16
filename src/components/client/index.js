@@ -1,9 +1,29 @@
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
+
 import Introduction from "./introduction/Introduction";
 import Benefits from "./benefits/Benefits";
 import Arguments from "./arguments/Arguments";
 
+import Project from "./project/Project";
+import Feedback from "./feedback/Feedback";
+
+import Price from "./price/Price";
+import Work from "./work/Work";
+import Services from "./services/Services";
+
 import AppButton from "./UI/AppButton";
 
-export { Header, Footer, Introduction, AppButton, Benefits, Arguments };
+export {
+  Header,
+  Footer,
+  Introduction,
+  AppButton,
+  Benefits,
+  Arguments,
+  Project,
+  Feedback,
+  Price,
+  Work,
+  Services,
+};
