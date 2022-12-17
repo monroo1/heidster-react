@@ -29,7 +29,7 @@ const Introduction = ({ props }) => {
           )
           .map((el, index) => (
             <div key={index} className="introduction-description__card">
-              <h2 className="introduction-description__card-title">
+              <h2 className="introduction-description__card-title font-semibold flex items-center justify-start">
                 <svg
                   className="t997__checkmark"
                   style={{

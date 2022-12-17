@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { TextField } from "@mui/material";
+import { TextField, Button } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
-  useCreateFeddbackMutation,
+  useCreateFeedbackMutation,
+  useDeleteFeedbackMutation,
   useFetchFeedbackPageQuery,
 } from "../../../services/projectPages.service";
 
 const FeedbackAdmin = ({ downloadImage }) => {
+  const [feedbackContent, setFeedbackContent] = useState([]);
   const [createFeedbackStatus, setCreateFeedbackStatus] = useState(false);
   const [deleteFeedbackStatus, setDeleteFeedbackStatus] = useState(false);
   const [feedback, setFeedback] = useState({
@@ -16,7 +19,8 @@ const FeedbackAdmin = ({ downloadImage }) => {
   });
 
   const { data, isLoading } = useFetchFeedbackPageQuery();
-  const [createFeedback] = useCreateFeddbackMutation();
+  const [createFeedback] = useCreateFeedbackMutation();
+  const [deleteFeedback] = useDeleteFeedbackMutation();
 
   const handleCreateFeedback = async (event) => {
     event.preventDefault();
@@ -34,8 +38,16 @@ const FeedbackAdmin = ({ downloadImage }) => {
     });
   };
 
+  const handlerDeleteFeedback = async (el) => {
+    const res = await deleteFeedback(el.id);
+    setFeedbackContent(
+      feedbackContent.filter((element) => element.id !== el.id)
+    );
+    console.log(res);
+  };
+
   useEffect(() => {
-    !isLoading && console.log(data);
+    !isLoading && setFeedbackContent(data);
   }, [isLoading, data]);
 
   return (
@@ -62,12 +74,9 @@ const FeedbackAdmin = ({ downloadImage }) => {
         </div>
       </div>
       {createFeedbackStatus && (
-        <form
-          className="flex flex-col items-start gap-y-4"
-          onSubmit={handleCreateFeedback}
-        >
+        <form className="admin-content__patch" onSubmit={handleCreateFeedback}>
           <label className="text-lg">Добавить отзыв:</label>
-          <div className="min-w-[350px] flex flex-col gap-y-4">
+          <div className="button-admin__submit-dop">
             <label className="text-lg">Картинка пользователя</label>
             <input type="file" />
             <TextField
@@ -98,10 +107,30 @@ const FeedbackAdmin = ({ downloadImage }) => {
               }
             />
           </div>
-          <button className="bg-sky-400 no-underline py-3 px-5 text-slate-100 rounded-lg pointer-events-auto hover:bg-sky-600">
-            Сохранить
-          </button>
+          <button className="button-admin__submit">Сохранить</button>
         </form>
+      )}
+      {deleteFeedbackStatus && (
+        <div>
+          <p className="text">Удалить отзывы:</p>
+          {feedbackContent.map((el) => (
+            <div key={el.id} className="feddback-item">
+              <div className="feddback-item__first">
+                <p>{el.author_name}</p>
+                <p>{el.author_profession}</p>
+              </div>
+              <div className="feddback-item__second">{el.value}</div>
+              <Button
+                variant="outlined"
+                onClick={() => handlerDeleteFeedback(el)}
+                startIcon={<DeleteIcon />}
+                className="feddback-item__button"
+              >
+                Удалить
+              </Button>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

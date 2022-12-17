@@ -8,7 +8,15 @@ export const contactsPageService = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
+    patchContactsPage: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/contactPage/${id}`,
+        method: "PATCH",
+        body: body,
+      }),
+    }),
   }),
 });
 
-export const { useFetchContactsPageQuery } = contactsPageService;
+export const { useFetchContactsPageQuery, usePatchContactsPageMutation } =
+  contactsPageService;

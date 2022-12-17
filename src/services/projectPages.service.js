@@ -2,23 +2,62 @@ import { apiSlice } from "../store/index.service";
 
 export const projectPageService = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    fetchProjectPage: builder.query({
-      query: () => ({
-        url: "/projectPageElement",
-        method: "GET",
-      }),
-    }),
     fetchFeedbackPage: builder.query({
       query: () => ({
         url: "/review",
         method: "GET",
       }),
     }),
-    createFeddback: builder.mutation({
+    createFeedback: builder.mutation({
       query: (body) => ({
         url: "/review",
         method: "POST",
         body: body,
+      }),
+    }),
+    deleteFeedback: builder.mutation({
+      query: (id) => ({
+        url: `/review/${id}`,
+        method: "DELETE",
+      }),
+    }),
+    fetchProjectPage: builder.query({
+      query: () => ({
+        url: "/projectPageElement",
+        method: "GET",
+      }),
+    }),
+    patchProjectPage: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/projectPageElement/${id}`,
+        method: "PATCH",
+        body: body,
+      }),
+    }),
+    createProjectPageElement: builder.mutation({
+      query: (body) => ({
+        url: `/projectPageElement`,
+        method: "POST",
+        body: body,
+      }),
+    }),
+    deleteProjectPageElement: builder.mutation({
+      query: (id) => ({
+        url: `/projectPageElement/${id}`,
+        method: "DELETE",
+      }),
+    }),
+    createProject: builder.mutation({
+      query: (body) => ({
+        url: `/project`,
+        method: "POST",
+        body: body,
+      }),
+    }),
+    deleteProject: builder.mutation({
+      query: (id) => ({
+        url: `/project/${id}`,
+        method: "DELETE",
       }),
     }),
   }),
@@ -27,5 +66,11 @@ export const projectPageService = apiSlice.injectEndpoints({
 export const {
   useFetchProjectPageQuery,
   useFetchFeedbackPageQuery,
-  useCreateFeddbackMutation,
+  useCreateFeedbackMutation,
+  useDeleteFeedbackMutation,
+  usePatchProjectPageMutation,
+  useCreateProjectPageElementMutation,
+  useCreateProjectMutation,
+  useDeleteProjectMutation,
+  useDeleteProjectPageElementMutation,
 } = projectPageService;

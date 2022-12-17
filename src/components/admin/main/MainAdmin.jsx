@@ -113,9 +113,9 @@ const MainAdmin = ({ downloadImage }) => {
       {(element.type === "first_slider_element" ||
         element.type === "second_slider_element" ||
         element.type === "third_slider_element") && (
-        <form className="flex flex-col items-start gap-y-4">
+        <form className="admin-content__patch">
           <label className="text-lg">Изменить текст:</label>
-          <div className="min-w-[350px] flex flex-col gap-y-4">
+          <div className="button-admin__submit-dop">
             <TextField
               id="filled-basic"
               label="Заголовок"
@@ -136,10 +136,7 @@ const MainAdmin = ({ downloadImage }) => {
               }
             />
           </div>
-          <button
-            className="bg-sky-400 no-underline py-3 px-5 text-slate-100 rounded-lg pointer-events-auto hover:bg-sky-600"
-            onClick={handleChangeCard}
-          >
+          <button className="button-admin__submit" onClick={handleChangeCard}>
             Сохранить
           </button>
         </form>
@@ -149,9 +146,9 @@ const MainAdmin = ({ downloadImage }) => {
         element.type === "main_description" ||
         element.type === "button") &&
         !element.file && (
-          <form className="flex flex-col items-start gap-y-4">
+          <form className="admin-content__patch">
             <label className="text-lg">Изменить текст:</label>
-            <div className="min-w-[350px] flex flex-col">
+            <div className="button-admin__submit-dop">
               <TextField
                 id="filled-basic"
                 label="Новое название"
@@ -161,7 +158,7 @@ const MainAdmin = ({ downloadImage }) => {
               />
             </div>
             <button
-              className="bg-sky-400 no-underline py-3 px-5 text-slate-100 rounded-lg pointer-events-auto hover:bg-sky-600"
+              className="button-admin__submit"
               onClick={handleChangeValue}
             >
               Сохранить
@@ -169,15 +166,10 @@ const MainAdmin = ({ downloadImage }) => {
           </form>
         )}
       {element.name === "logo" && (
-        <form
-          onSubmit={handleImage}
-          className="flex flex-col items-start gap-y-4"
-        >
+        <form onSubmit={handleImage} className="admin-content__patch">
           <label className="text-lg">Изменить картинку:</label>
           <input type="file" />
-          <button className="bg-sky-400 no-underline py-3 px-5 text-slate-100 rounded-lg pointer-events-auto hover:bg-sky-600">
-            Сохранить
-          </button>
+          <button className="button-admin__submit">Сохранить</button>
         </form>
       )}
     </div>

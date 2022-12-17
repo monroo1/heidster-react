@@ -89,21 +89,16 @@ const HeaderAdmin = ({ downloadImage }) => {
           })}
       </div>
       {element.type === "logo" && (
-        <form
-          onSubmit={handleImage}
-          className="flex flex-col items-start gap-y-4"
-        >
+        <form onSubmit={handleImage} className="admin-content__patch">
           <label className="text-lg">Изменить логотип:</label>
           <input type="file" />
-          <button className="bg-sky-400 no-underline py-3 px-5 text-slate-100 rounded-lg pointer-events-auto hover:bg-sky-600">
-            Сохранить
-          </button>
+          <button className="button-admin__submit">Сохранить</button>
         </form>
       )}
       {!!element.menu_id && (
-        <form className="flex flex-col items-start gap-y-4">
+        <form className="admin-content__patch">
           <label className="text-lg">Изменить текст:</label>
-          <div className="min-w-[350px] flex flex-col">
+          <div className="button-admin__submit-dop">
             <TextField
               id="filled-basic"
               label="Новое название"
@@ -113,7 +108,7 @@ const HeaderAdmin = ({ downloadImage }) => {
             />
           </div>
           <button
-            className="bg-sky-400 no-underline py-3 px-5 text-slate-100 rounded-lg pointer-events-auto hover:bg-sky-600"
+            className="button-admin__submit"
             onClick={handleChageMenuItem}
           >
             Сохранить
@@ -121,9 +116,9 @@ const HeaderAdmin = ({ downloadImage }) => {
         </form>
       )}
       {element.type === "button" && (
-        <form className="flex flex-col items-start gap-y-4">
+        <form className="admin-content__patch">
           <label className="text-lg">Изменить текст:</label>
-          <div className="min-w-[350px] flex flex-col">
+          <div className="button-admin__submit-dop">
             <TextField
               id="filled-basic"
               label="Новое название"
@@ -132,10 +127,7 @@ const HeaderAdmin = ({ downloadImage }) => {
               onChange={(e) => setDefaultValue(e.target.value)}
             />
           </div>
-          <button
-            className="bg-sky-400 no-underline py-3 px-5 text-slate-100 rounded-lg pointer-events-auto hover:bg-sky-600"
-            onClick={handleChangeButton}
-          >
+          <button className="button-admin__submit" onClick={handleChangeButton}>
             Сохранить
           </button>
         </form>

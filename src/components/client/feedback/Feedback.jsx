@@ -12,7 +12,7 @@ const Feedback = () => {
     !isLoading && (
       <section className="feedback">
         <div className="feedback__container">
-          <h2 className="feedback__title">asdasd</h2>
+          <h2 className="feedback__title">Отзывы</h2>
         </div>
 
         <Swiper
