@@ -143,3 +143,14 @@
     max-height: 85%;
   }
 }
+
+.admin-project__service {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 12px;
+  padding: 12px;
+  max-width: 300px;
+  gap: 6px;
+  justify-content: space-between;
+}

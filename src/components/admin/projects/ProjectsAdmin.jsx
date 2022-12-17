@@ -132,7 +132,7 @@ const ProjectsAdmin = ({ downloadImage }) => {
           className="button-admin__nav"
           onClick={hadleOpenProjects}
         >
-          Проекты по "Брэедингу"
+          Проекты по "Брендингу"
         </div>
       </div>
       {(element.type === "main_description" ||

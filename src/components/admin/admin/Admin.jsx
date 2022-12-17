@@ -93,7 +93,10 @@ const Admin = () => {
               path="main"
               element={<MainAdmin downloadImage={OnSumbitFile} />}
             />
-            <Route path="services" element={<ServicesAdmin />} />
+            <Route
+              path="services"
+              element={<ServicesAdmin downloadImage={OnSumbitFile} />}
+            />
             <Route
               path="projects"
               element={<ProjectsAdmin downloadImage={OnSumbitFile} />}

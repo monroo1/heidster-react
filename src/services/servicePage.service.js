@@ -8,7 +8,32 @@ export const projectPageService = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
+    patchServicePageElement: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/servicePageElement/${id}`,
+        method: "PATCH",
+        body: body,
+      }),
+    }),
+    createServiscePageElement: builder.mutation({
+      query: (body) => ({
+        url: `/servicePageElement`,
+        method: "POST",
+        body: body,
+      }),
+    }),
+    deleteServiscePageElement: builder.mutation({
+      query: (id) => ({
+        url: `/servicePageElement/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
-export const { useFetchServicePageQuery } = projectPageService;
+export const {
+  useFetchServicePageQuery,
+  usePatchServicePageElementMutation,
+  useCreateServiscePageElementMutation,
+  useDeleteServiscePageElementMutation,
+} = projectPageService;

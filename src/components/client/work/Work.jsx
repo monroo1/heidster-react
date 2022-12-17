@@ -14,7 +14,7 @@ const Work = ({ props }) => {
               .filter((element) => element.type === "card")
               .map((el, i) => (
                 <span className="work__line-item" key={i}>
-                  {i}
+                  {i + 1}
                 </span>
               ))}
           </div>
