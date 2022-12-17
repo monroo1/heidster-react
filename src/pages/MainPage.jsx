@@ -4,6 +4,7 @@ import {
   Introduction,
   Benefits,
   Arguments,
+  MobileNav,
 } from "../components/client";
 import { useFetchMainPageQuery } from "../services/mainPage.service";
 
@@ -24,6 +25,7 @@ const MainPage = () => {
           props={data.filter((element) => element.component === "arguments")}
         />
         <Footer />
+        <MobileNav />
       </>
     )
   );

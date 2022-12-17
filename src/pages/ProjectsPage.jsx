@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Header, Footer, Project, Feedback } from "../components/client";
+import {
+  Header,
+  Footer,
+  Project,
+  Feedback,
+  MobileNav,
+} from "../components/client";
 import { useFetchProjectPageQuery } from "../services/projectPages.service";
 
 const ProjectsPage = () => {
@@ -25,6 +31,7 @@ const ProjectsPage = () => {
         })}
         <Feedback />
         <Footer />
+        <MobileNav />
       </>
     )
   );

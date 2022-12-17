@@ -1,5 +1,12 @@
 import React from "react";
-import { Header, Footer, Services, Work, Price } from "../components/client";
+import {
+  Header,
+  Footer,
+  Services,
+  Work,
+  Price,
+  MobileNav,
+} from "../components/client";
 import { useFetchServicePageQuery } from "../services/servicePage.service";
 
 const ServicesPage = () => {
@@ -17,6 +24,7 @@ const ServicesPage = () => {
         />
         <Work props={data.filter((el) => el.component === "work")} />
         <Footer />
+        <MobileNav />
       </>
     )
   );

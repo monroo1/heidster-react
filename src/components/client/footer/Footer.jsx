@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFetchFooterQuery } from "../../../services/footer.service";
 
@@ -11,10 +11,20 @@ function ListItem({ props }) {
 }
 
 const Header = () => {
+  const [width, setWidth] = useState(window.innerWidth);
   const { data, isLoading } = useFetchFooterQuery();
 
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+  }, []);
+
   return (
-    !isLoading && (
+    !isLoading &&
+    width > 980 && (
       <footer className="footer">
         <div className="footer-wrapper wrapper">
           <div className="footer-social">

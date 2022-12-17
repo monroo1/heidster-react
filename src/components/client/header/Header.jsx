@@ -1,12 +1,24 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFetchHeaderQuery } from "../../../services/header.service";
 
 const Header = () => {
+  const [scroll, setScroll] = useState(0);
+
   const { data, isLoading } = useFetchHeaderQuery();
+
+  const handleScroll = () => {
+    setScroll(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     !isLoading && (
-      <header className="header">
+      <header className={scroll > 50 ? "headerScroll header" : "header"}>
         <div className="header-nav">
           <Link to="/" className="header-nav__logo">
             <img

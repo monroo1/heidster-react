@@ -23,6 +23,7 @@ import "./App.css";
 import { useCheckAuthMutation } from "./services/auth.service";
 import { useDispatch } from "react-redux";
 import { setLogout, setUser } from "./store/reducers/auth.slice";
+import { ScrollUI } from "./components/client";
 
 const router = createBrowserRouter([
   {
@@ -101,6 +102,7 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router}></RouterProvider>
+      <ScrollUI />
     </div>
   );
 }

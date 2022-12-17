@@ -1,5 +1,5 @@
 import { YMaps, Map, Placemark } from "react-yandex-maps";
-import { Header, Footer } from "../components/client";
+import { Header, Footer, MobileNav } from "../components/client";
 import { useFetchContactsPageQuery } from "../services/contactsPage.service";
 
 const ContactsPage = () => {
@@ -78,6 +78,7 @@ const ContactsPage = () => {
           </section>
         </div>
         <Footer />
+        <MobileNav />
       </>
     )
   );

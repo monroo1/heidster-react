@@ -13,12 +13,15 @@ import Work from "./work/Work";
 import Services from "./services/Services";
 
 import AppButton from "./UI/AppButton";
+import ScrollUI from "./UI/Scroll";
+import MobileNav from "./UI/MobileNav";
 
 export {
   Header,
   Footer,
   Introduction,
   AppButton,
+  ScrollUI,
   Benefits,
   Arguments,
   Project,
@@ -26,4 +29,5 @@ export {
   Price,
   Work,
   Services,
+  MobileNav,
 };
