@@ -32,7 +32,6 @@ const ProjectsAdmin = ({ downloadImage }) => {
     setStatusDelete(false);
     setElement(projectData[event.target.id]);
     setDefaultValue(projectData[event.target.id].value);
-    console.log(projectData[event.target.id]);
   };
 
   const hadleOpenProjects = (event) => {
@@ -95,7 +94,6 @@ const ProjectsAdmin = ({ downloadImage }) => {
       setProjectData(
         arr.sort((a, b) => a.id - b.id).filter((el) => !el.project)
       );
-      console.log(arr.sort((a, b) => a.id - b.id).filter((el) => !el.project));
     }
   }, [isLoading]);
 
@@ -139,7 +137,7 @@ const ProjectsAdmin = ({ downloadImage }) => {
         element.type === "main_header" ||
         element.type === "description") && (
         <form className="admin-content__patch">
-          <label className="text-lg">Изменить текст:</label>
+          <label className="text">Изменить текст:</label>
           <div className="button-admin__submit-dop">
             <TextField
               id="filled-basic"

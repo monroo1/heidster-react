@@ -75,7 +75,7 @@ const FeedbackAdmin = ({ downloadImage }) => {
       </div>
       {createFeedbackStatus && (
         <form className="admin-content__patch" onSubmit={handleCreateFeedback}>
-          <label className="text-lg">Добавить отзыв:</label>
+          <label className="text">Добавить отзыв:</label>
           <div className="button-admin__submit-dop">
             <label className="text-lg">Картинка пользователя</label>
             <input type="file" />

@@ -15,7 +15,6 @@ const ContactsAdmin = () => {
   const handleOpenChange = (event) => {
     setElement(data[event.target.id]);
     setDefaultValue(data[event.target.id].value);
-    console.log(data[event.target.id]);
   };
 
   const handleChangeValue = async (event) => {
@@ -26,10 +25,6 @@ const ContactsAdmin = () => {
     });
     console.log(res);
   };
-
-  useEffect(() => {
-    !isLoading && console.log(data);
-  }, [isLoading, data]);
 
   return (
     !isLoading && (
@@ -51,7 +46,7 @@ const ContactsAdmin = () => {
           element.type === "main_description" ||
           element.type === "address") && (
           <form className="admin-content__patch">
-            <label className="text-lg">Изменить текст:</label>
+            <label className="text">Изменить текст:</label>
             <div className="button-admin__submit-dop">
               <TextField
                 id="filled-basic"

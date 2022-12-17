@@ -88,7 +88,10 @@ const Admin = () => {
               path="header"
               element={<HeaderAdmin downloadImage={OnSumbitFile} />}
             />
-            <Route path="footer" element={<FooterAdmin />} />
+            <Route
+              path="footer"
+              element={<FooterAdmin downloadImage={OnSumbitFile} />}
+            />
             <Route
               path="main"
               element={<MainAdmin downloadImage={OnSumbitFile} />}

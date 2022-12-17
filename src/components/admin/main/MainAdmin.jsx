@@ -114,7 +114,7 @@ const MainAdmin = ({ downloadImage }) => {
         element.type === "second_slider_element" ||
         element.type === "third_slider_element") && (
         <form className="admin-content__patch">
-          <label className="text-lg">Изменить текст:</label>
+          <label className="text">Изменить содержмое блока:</label>
           <div className="button-admin__submit-dop">
             <TextField
               id="filled-basic"
@@ -147,7 +147,7 @@ const MainAdmin = ({ downloadImage }) => {
         element.type === "button") &&
         !element.file && (
           <form className="admin-content__patch">
-            <label className="text-lg">Изменить текст:</label>
+            <label className="text">Изменить текст:</label>
             <div className="button-admin__submit-dop">
               <TextField
                 id="filled-basic"
@@ -167,7 +167,7 @@ const MainAdmin = ({ downloadImage }) => {
         )}
       {element.name === "logo" && (
         <form onSubmit={handleImage} className="admin-content__patch">
-          <label className="text-lg">Изменить картинку:</label>
+          <label className="text">Изменить картинку:</label>
           <input type="file" />
           <button className="button-admin__submit">Сохранить</button>
         </form>

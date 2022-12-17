@@ -187,7 +187,7 @@ const ServicesAdmin = ({ downloadImage }) => {
       </div>
       {element.type === "card" && (
         <form className="admin-content__patch" onSubmit={handleChangeCard}>
-          <label className="text">Изменить текст:</label>
+          <label className="text">Изменить содержимое блока:</label>
           <div className="button-admin__submit-dop">
             <label className="text-lg">Изменить картинку</label>
             <input type="file" />

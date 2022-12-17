@@ -90,14 +90,14 @@ const HeaderAdmin = ({ downloadImage }) => {
       </div>
       {element.type === "logo" && (
         <form onSubmit={handleImage} className="admin-content__patch">
-          <label className="text-lg">Изменить логотип:</label>
+          <label className="text">Изменить логотип:</label>
           <input type="file" />
           <button className="button-admin__submit">Сохранить</button>
         </form>
       )}
       {!!element.menu_id && (
         <form className="admin-content__patch">
-          <label className="text-lg">Изменить текст:</label>
+          <label className="text">Изменить текст:</label>
           <div className="button-admin__submit-dop">
             <TextField
               id="filled-basic"
@@ -117,7 +117,7 @@ const HeaderAdmin = ({ downloadImage }) => {
       )}
       {element.type === "button" && (
         <form className="admin-content__patch">
-          <label className="text-lg">Изменить текст:</label>
+          <label className="text">Изменить текст:</label>
           <div className="button-admin__submit-dop">
             <TextField
               id="filled-basic"

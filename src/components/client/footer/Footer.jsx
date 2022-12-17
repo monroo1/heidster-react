@@ -30,13 +30,13 @@ const Header = () => {
               {data
                 .filter((element) => element.name === "social-link")
                 .map((el, index) => (
-                  <Link to="/" key={index}>
+                  <a href={el.value} key={index}>
                     <img
                       src={"http://80.78.246.20/" + el.file.path}
                       alt={el.value}
                       className="footer-social__link"
                     />
-                  </Link>
+                  </a>
                 ))}
             </div>
             <p className="footer-copy">
