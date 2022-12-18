@@ -1,9 +1,10 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import home from "../../../images/home.svg";
 import services from "../../../images/services.svg";
 import projects from "../../../images/projects.svg";
 import contacts from "../../../images/contacts.svg";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 const MobileNav = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -21,7 +22,7 @@ const MobileNav = () => {
       <section className="mobile-nav">
         <div className="mobile-nav__container">
           <div className="mobile-nav__item">
-            <Link to="link.route" className="mobile-nav__link">
+            <Link to="/" className="mobile-nav__link">
               <div className="mobile-nav__link-logo">
                 <img src={home} alt="img" className="mobile-nav__link-img" />
               </div>
@@ -29,7 +30,7 @@ const MobileNav = () => {
             </Link>
           </div>
           <div className="mobile-nav__item">
-            <Link to="link.route" className="mobile-nav__link">
+            <Link to="/Услуги" className="mobile-nav__link">
               <div className="mobile-nav__link-logo">
                 <img
                   src={services}
@@ -41,7 +42,7 @@ const MobileNav = () => {
             </Link>
           </div>
           <div className="mobile-nav__item">
-            <Link to="link.route" className="mobile-nav__link">
+            <Link to="/Проекты" className="mobile-nav__link">
               <div className="mobile-nav__link-logo">
                 <img
                   src={projects}
@@ -51,9 +52,9 @@ const MobileNav = () => {
               </div>
               <div className="mobile-nav__link-text">Проекты</div>
             </Link>
-          </div>{" "}
+          </div>
           <div className="mobile-nav__item">
-            <Link to="link.route" className="mobile-nav__link">
+            <Link to="/Контакты" className="mobile-nav__link">
               <div className="mobile-nav__link-logo">
                 <img
                   src={contacts}
