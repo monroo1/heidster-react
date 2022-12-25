@@ -83,7 +83,7 @@ const Admin = () => {
             </Link>
             <Link to="applications">
               <ListItemButton>
-                <ListItemText>Страница заявок</ListItemText>
+                <ListItemText>Заявки</ListItemText>
               </ListItemButton>
             </Link>
           </ul>
