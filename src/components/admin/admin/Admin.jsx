@@ -10,6 +10,7 @@ import {
   ProjectsAdmin,
   FeedbackAdmin,
   ContactsAdmin,
+  Applications,
 } from "../index";
 import { Button, ListItemButton, ListItemText } from "@mui/material";
 
@@ -80,6 +81,11 @@ const Admin = () => {
                 <ListItemText>Страница контактов</ListItemText>
               </ListItemButton>
             </Link>
+            <Link to="applications">
+              <ListItemButton>
+                <ListItemText>Страница заявок</ListItemText>
+              </ListItemButton>
+            </Link>
           </ul>
         </div>
         <div className="admin-main__content">
@@ -108,6 +114,7 @@ const Admin = () => {
               path="feedback"
               element={<FeedbackAdmin downloadImage={OnSumbitFile} />}
             />
+            <Route path="applications" element={<Applications />} />
             <Route path="contacts" element={<ContactsAdmin />} />
           </Routes>
         </div>

@@ -1,0 +1,16 @@
+.contacts-form {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  align-items: center;
+}
+
+.white {
+  background-color: white !important;
+
+  &:hover {
+    border: 1px solid #fc7e25 !important;
+    color: #fc7e25 !important;
+    background-color: rgb(240, 240, 240) !important;
+  }
+}

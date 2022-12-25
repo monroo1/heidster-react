@@ -1,9 +1,48 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setEmail,
+  setDescription,
+  setPhone,
+  setName,
+  deleteState,
+} from "../store/reducers/form.slice";
+import { useCreateFeedbackMutation } from "../services/feedback.service";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
 import { Header, Footer, MobileNav } from "../components/client";
 import { useFetchContactsPageQuery } from "../services/contactsPage.service";
 
+import "./contacts.scss";
+
 const ContactsPage = () => {
   const { data, isLoading } = useFetchContactsPageQuery();
+
+  const dispatch = useDispatch();
+
+  const [fetchCreateFeedback] = useCreateFeedbackMutation();
+
+  const {
+    email,
+    emailError,
+    name,
+    nameError,
+    phone,
+    phoneError,
+    description,
+    descriptionError,
+  } = useSelector((state) => state.formSlice);
+
+  const createFeedback = async () => {
+    if (!emailError && !nameError && !phoneError && !descriptionError) {
+      const res = await fetchCreateFeedback({
+        name: name,
+        phone: phone,
+        email: email,
+        text: description,
+      });
+      console.log(res);
+      dispatch(deleteState());
+    }
+  };
 
   return (
     !isLoading && (
@@ -31,25 +70,76 @@ const ContactsPage = () => {
                   ))}
               </ul>
 
-              <form className="contacts__form">
+              <form
+                className="contacts-form"
+                onSubmit={(event) => event.preventDefault()}
+              >
+                {emailError && (
+                  <label className="label-form" htmlFor="form-email">
+                    Неверный формат почты!
+                  </label>
+                )}
                 <input
-                  className="contacts__form-input"
-                  type="email"
-                  placeholder="Ваш E-mail"
-                />
-                <input
-                  className="contacts__form-input"
                   type="text"
+                  autoComplete="email"
+                  name="Email"
+                  value={email}
+                  onChange={(e) => dispatch(setEmail(e.target.value))}
+                  id="form-email"
+                  className="contacts__form-input"
+                  placeholder="Ваш Email"
+                />
+                {nameError && (
+                  <label className="label-form" htmlFor="form-name">
+                    Неверный формат имени!
+                  </label>
+                )}
+                <input
+                  type="text"
+                  autoComplete="name"
+                  name="Name"
+                  value={name}
+                  onChange={(e) => dispatch(setName(e.target.value))}
+                  id="form-name"
+                  className="contacts__form-input"
                   placeholder="Ваше имя"
                 />
-                <textarea
+                {phoneError && (
+                  <label className="label-form" htmlFor="form-phone">
+                    Неверный формат номера телефона!
+                  </label>
+                )}
+                <input
+                  type="tel"
+                  autoComplete="tel"
+                  name="Phone"
+                  value={phone}
+                  onChange={(e) => dispatch(setPhone(e.target.value))}
+                  id="form-phone"
                   className="contacts__form-input"
-                  placeholder="Текст отзыва"
-                  rows="450"
+                  placeholder="+7 999 999 99 99"
                 />
+                {descriptionError && (
+                  <label className="label-form" htmlFor="form-text">
+                    Неверный формат описания проекта, длина от 15 символов!
+                  </label>
+                )}
+                <textarea
+                  name="text"
+                  cols="30"
+                  rows="5"
+                  value={description}
+                  onChange={(e) => dispatch(setDescription(e.target.value))}
+                  id="form-text"
+                  placeholder="Опишите кратко свой проект"
+                  className="contacts__form-input"
+                  v-model="text"
+                ></textarea>
                 <button
-                  className="contacts__form-btn"
-                  onClick={(e) => e.preventDefault()}
+                  className="application__btn white"
+                  onClick={() => {
+                    createFeedback();
+                  }}
                 >
                   Отправить
                 </button>

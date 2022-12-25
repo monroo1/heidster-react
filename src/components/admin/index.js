@@ -11,6 +11,8 @@ import ProjectsAdmin from "./projects/ProjectsAdmin";
 import FeedbackAdmin from "./feedback/FeddbackAdmin";
 import ContactsAdmin from "./contacts/ContactsAdmin";
 
+import Applications from "./applications/Applications";
+
 export {
   Login,
   Registration,
@@ -22,4 +24,5 @@ export {
   ProjectsAdmin,
   FeedbackAdmin,
   ContactsAdmin,
+  Applications,
 };
