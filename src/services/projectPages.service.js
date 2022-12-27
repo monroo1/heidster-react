@@ -15,7 +15,7 @@ export const projectPageService = apiSlice.injectEndpoints({
         body: body,
       }),
     }),
-    deleteFeedback: builder.mutation({
+    deleteReview: builder.mutation({
       query: (id) => ({
         url: `/review/${id}`,
         method: "DELETE",
@@ -67,7 +67,7 @@ export const {
   useFetchProjectPageQuery,
   useFetchFeedbackPageQuery,
   useCreateReviewMutation,
-  useDeleteFeedbackMutation,
+  useDeleteReviewMutation,
   usePatchProjectPageMutation,
   useCreateProjectPageElementMutation,
   useCreateProjectMutation,

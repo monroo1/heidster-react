@@ -3,7 +3,7 @@ import { TextField, Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
   useCreateReviewMutation,
-  useDeleteFeedbackMutation,
+  useDeleteReviewMutation,
   useFetchFeedbackPageQuery,
 } from "../../../services/projectPages.service";
 
@@ -19,7 +19,7 @@ const FeedbackAdmin = ({ downloadImage }) => {
 
   const { data, isLoading } = useFetchFeedbackPageQuery();
   const [createFeedback] = useCreateReviewMutation();
-  const [deleteFeedback] = useDeleteFeedbackMutation();
+  const [deleteFeedback] = useDeleteReviewMutation();
 
   const handleCreateFeedback = async (event) => {
     event.preventDefault();
