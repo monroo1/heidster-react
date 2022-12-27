@@ -1,4 +1,5 @@
 import "./services.scss";
+import { API_URL } from "../../../store/index.service";
 
 const Services = ({ props }) => {
   return (
@@ -17,7 +18,7 @@ const Services = ({ props }) => {
               <div className="services__item" key={el.id}>
                 <img
                   className="services__item-logo"
-                  src={"http://80.78.246.20/" + el.file.path}
+                  src={API_URL + "/" + el.file.path}
                   alt="img"
                 />
                 <div className="services__item-container">

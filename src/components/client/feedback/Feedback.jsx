@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper";
 import { useFetchFeedbackPageQuery } from "../../../services/projectPages.service";
+import { API_URL } from "../../../store/index.service";
 
 import "swiper/css";
 import "./feedback.scss";
@@ -31,7 +32,7 @@ const Feedback = () => {
                   <div className="feedback__container">
                     <div className="feedback__slide">
                       <img
-                        src={"http://80.78.246.20/" + el.author_image.path}
+                        src={API_URL + "/" + el.author_image.path}
                         alt="logo.jpg"
                         className="feedback__slide-logo"
                       />

@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper";
 import AppButton from "../UI/AppButton";
+import { API_URL } from "../../../store/index.service";
 
 import "swiper/css";
 import "swiper/css/bundle";
@@ -36,7 +37,7 @@ const Project = ({ props }) => {
               .map((el) => {
                 return (
                   <SwiperSlide key={el.project.file.id}>
-                    <img src={"http://80.78.246.20/" + el.project.file.path} />
+                    <img src={API_URL + "/" + el.project.file.path} />
                   </SwiperSlide>
                 );
               })}
