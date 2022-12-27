@@ -1,9 +1,9 @@
 import { fetchBaseQuery, createApi } from "@reduxjs/toolkit/query/react";
 
-export const API_URL = "http://80.78.246.20/api";
+export const API_URL = "https://3d8c7856c84dec.lhr.life";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: API_URL,
+  baseUrl: API_URL + "/api",
   prepareHeaders: (headers) => {
     const token = localStorage.getItem("token");
     if (token) {
