@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../../../images/arguments-item.svg";
+import { API_URL } from "../../../store/index.service";
 
 const Arguments = ({ props }) => {
   return (
@@ -26,7 +27,8 @@ const Arguments = ({ props }) => {
         </div>
         <img
           src={
-            "http://80.78.246.20/" +
+            API_URL +
+            "/" +
             props.filter((el) => el.name === "logo")[0].file.path
           }
           className="arguments__img"

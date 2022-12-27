@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFetchHeaderQuery } from "../../../services/header.service";
+import { API_URL } from "../../../store/index.service";
 
 const Header = () => {
   const [scroll, setScroll] = useState(0);
@@ -23,7 +24,8 @@ const Header = () => {
           <Link to="/" className="header-nav__logo">
             <img
               src={
-                "http://80.78.246.20/" +
+                API_URL +
+                "/" +
                 data.filter((el) => el.name === "logo")[0].file.path
               }
             />

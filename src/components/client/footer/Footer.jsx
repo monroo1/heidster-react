@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFetchFooterQuery } from "../../../services/footer.service";
+import { API_URL } from "../../../store/index.service";
 
 function ListItem({ props }) {
   return (
@@ -31,7 +32,8 @@ const Header = () => {
             <Link to="/">
               <img
                 src={
-                  "http://80.78.246.20/" +
+                  API_URL +
+                  "/" +
                   data.filter((el) => el.name === "logo")[0].file.path
                 }
               />
@@ -42,7 +44,7 @@ const Header = () => {
                 .map((el, index) => (
                   <a href={el.value} key={index}>
                     <img
-                      src={"http://80.78.246.20/" + el.file.path}
+                      src={API_URL + "/" + el.file.path}
                       alt={el.value}
                       className="footer-social__link"
                     />
