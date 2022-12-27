@@ -15,7 +15,6 @@ const FeedbackAdmin = ({ downloadImage }) => {
     author_name: "",
     author_profession: "",
     value: "",
-    id: null,
   });
 
   const { data, isLoading } = useFetchFeedbackPageQuery();
@@ -34,7 +33,6 @@ const FeedbackAdmin = ({ downloadImage }) => {
       author_name: "",
       author_profession: "",
       value: "",
-      id: null,
     });
   };
 
