@@ -8,7 +8,7 @@ export const projectPageService = apiSlice.injectEndpoints({
         method: "GET",
       }),
     }),
-    createFeedback: builder.mutation({
+    createReview: builder.mutation({
       query: (body) => ({
         url: "/review",
         method: "POST",
@@ -66,7 +66,7 @@ export const projectPageService = apiSlice.injectEndpoints({
 export const {
   useFetchProjectPageQuery,
   useFetchFeedbackPageQuery,
-  useCreateFeedbackMutation,
+  useCreateReviewMutation,
   useDeleteFeedbackMutation,
   usePatchProjectPageMutation,
   useCreateProjectPageElementMutation,
