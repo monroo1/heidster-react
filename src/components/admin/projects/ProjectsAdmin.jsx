@@ -8,6 +8,7 @@ import {
   useFetchProjectPageQuery,
   usePatchProjectPageMutation,
 } from "../../../services/projectPages.service";
+import { API_URL } from "../../../store/index.service";
 
 const ProjectsAdmin = ({ downloadImage }) => {
   const [projectData, setProjectData] = useState([]);
@@ -183,7 +184,7 @@ const ProjectsAdmin = ({ downloadImage }) => {
               <div className="project-list-admin">
                 {projectsList.map((el, i) => (
                   <div key={i} className="admin-project__img">
-                    <img src={"http://80.78.246.20/" + el.project.file.path} />
+                    <img src={API_URL + "/" + el.project.file.path} />
                     <Button
                       variant="outlined"
                       color="error"
